@@ -28,7 +28,6 @@ public class HelloWorldActivity extends Activity {
 			pslistener = new myPhoneStateListener();
 			TelephonManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 			TelephonManager.listen(pslistener, PhoneStateListener.LISTEN_SIGNAL_STRENGTHS);
-			
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
@@ -43,7 +42,7 @@ class myPhoneStateListener extends PhoneStateListener {
             int ss = signalStrength.getGsmSignalStrength();
             ss = (2 * ss) - 113; // -> dBm    
             Log.d("wtf", "Signal Strenght is now: " + String.valueOf(ss));
-			Log.d("wtf", "Signal Post: " + String.valueOf(HttpRequest.post("http://requestb.in/1mz9yso1").contentType("application/json").send("{\"signalstrength\":" + String.valueOf(ss) +"}").code()));
+			Log.d("wtf", "Signal Post: " + String.valueOf(HttpRequest.post("http://mapmytrip.mybluemix.net/datapoint").contentType("application/json").send("{\"signalstrength\":" + String.valueOf(ss) +", \"signaltype\": \"4G\", \"location\": {\"coordinates\": [12,18]}}").code()));
         }
 
     }
