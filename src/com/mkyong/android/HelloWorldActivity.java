@@ -22,7 +22,8 @@ public class HelloWorldActivity extends Activity {
         TelephonyManager TelephonManager;
 		myPhoneStateListener pslistener;    
 		int SignalStrength = 0;
-		TextView text = new TextView(this);
+		TextView myAwesomeTextView = (TextView)findViewById(R.id.myAwesomeTextView);
+		myAwesomeTextView.setText("My Awesome Text");
 		
 		try {
 			pslistener = new myPhoneStateListener();
@@ -35,15 +36,51 @@ public class HelloWorldActivity extends Activity {
     }
 }
 
+class MyLocationListener implements LocationListener {
+	String lat = "";
+	String lon = "";
+	
+	public String getLocation(){
+		return lat+"/"+lon;
+	}
+	
+	@Override
+    public void onLocationChanged(Location loc) {
+        editLocation.setText("");
+        pb.setVisibility(View.INVISIBLE);
+        Toast.makeText(
+                getBaseContext(),
+                "Location changed: Lat: " + loc.getLatitude() + " Lng: "
+                    + loc.getLongitude(), Toast.LENGTH_SHORT).show();
+        String longitude = "Longitude: " + loc.getLongitude();
+        Log.v(TAG, longitude);
+        String latitude = "Latitude: " + loc.getLatitude();
+        Log.v(TAG, latitude);
+    }
+    @Override
+    public void onProviderDisabled(String provider) {}
+
+    @Override
+    public void onProviderEnabled(String provider) {}
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
+
 class myPhoneStateListener extends PhoneStateListener {
+		LocationManager locationManager = (LocationManager)
+		getSystemService(Context.LOCATION_SERVICE);
+		LocationListener locationListener = new MyLocationListener();
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
+        int ss = -1
+        
         @Override
         public void onSignalStrengthsChanged(SignalStrength signalStrength) {
             super.onSignalStrengthsChanged(signalStrength);
-            int ss = signalStrength.getGsmSignalStrength();
+            ss = signalStrength.getGsmSignalStrength();
             ss = (2 * ss) - 113; // -> dBm    
             Log.d("wtf", "Signal Strenght is now: " + String.valueOf(ss));
+            Log.d("wtf", "Location: " + locationListener.getLocation());
 			Log.d("wtf", "Signal Post: " + String.valueOf(HttpRequest.post("http://mapmytrip.mybluemix.net/datapoint").contentType("application/json").send("{\"signalstrength\":" + String.valueOf(ss) +", \"signaltype\": \"4G\", \"location\": {\"coordinates\": [12,18]}}").code()));
         }
-
-    }
+	}
 
