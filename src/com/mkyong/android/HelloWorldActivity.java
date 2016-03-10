@@ -43,7 +43,7 @@ class myPhoneStateListener extends PhoneStateListener {
             int ss = signalStrength.getGsmSignalStrength();
             ss = (2 * ss) - 113; // -> dBm    
             Log.d("wtf", "Signal Strenght is now: " + String.valueOf(ss));
-			Log.d("wtf", "Signal Post: " + String.valueOf(HttpRequest.post("http://mapmytrip.mybluemix.net/datapoint").send("{\"signalStrength\": " + String.valueOf(ss) + ", \"signalType\": 4G, \"location\": {\"coordinates\": [10,23]} }").code()));
+			Log.d("wtf", "Signal Post: " + String.valueOf(HttpRequest.post("http://requestb.in/1mz9yso1").contentType("application/json").send("{\"signalstrength\":" + String.valueOf(ss) +"}").code()));
         }
 
     }

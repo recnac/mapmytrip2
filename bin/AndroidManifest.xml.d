@@ -1,2 +1,2 @@
-/home/swieczor/Downloads/HW/bin/AndroidManifest.xml : \
-/home/swieczor/Downloads/HW/AndroidManifest.xml \
+/home/swieczor/Downloads/mapmytrip2/bin/AndroidManifest.xml : \
+/home/swieczor/Downloads/mapmytrip2/AndroidManifest.xml \

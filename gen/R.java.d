@@ -1,10 +1,10 @@
-/home/swieczor/Downloads/HW/gen/com/mkyong/android/R.java \
- : /home/swieczor/Downloads/HW/res/drawable-ldpi/ic_launcher.png \
-/home/swieczor/Downloads/HW/res/drawable-mdpi/ic_launcher.png \
-/home/swieczor/Downloads/HW/res/drawable-hdpi/ic_launcher.png \
-/home/swieczor/Downloads/HW/res/layout/main.xml \
-/home/swieczor/Downloads/HW/res/values/strings.xml \
-/home/swieczor/Downloads/HW/bin/res/drawable-ldpi/ic_launcher.png \
-/home/swieczor/Downloads/HW/bin/res/drawable-mdpi/ic_launcher.png \
-/home/swieczor/Downloads/HW/bin/res/drawable-hdpi/ic_launcher.png \
-/home/swieczor/Downloads/HW/bin/AndroidManifest.xml \
+/home/swieczor/Downloads/mapmytrip2/gen/com/mkyong/android/R.java \
+ : /home/swieczor/Downloads/mapmytrip2/res/drawable-ldpi/ic_launcher.png \
+/home/swieczor/Downloads/mapmytrip2/res/drawable-mdpi/ic_launcher.png \
+/home/swieczor/Downloads/mapmytrip2/res/drawable-hdpi/ic_launcher.png \
+/home/swieczor/Downloads/mapmytrip2/res/layout/main.xml \
+/home/swieczor/Downloads/mapmytrip2/res/values/strings.xml \
+/home/swieczor/Downloads/mapmytrip2/bin/res/drawable-ldpi/ic_launcher.png \
+/home/swieczor/Downloads/mapmytrip2/bin/res/drawable-mdpi/ic_launcher.png \
+/home/swieczor/Downloads/mapmytrip2/bin/res/drawable-hdpi/ic_launcher.png \
+/home/swieczor/Downloads/mapmytrip2/bin/AndroidManifest.xml \
