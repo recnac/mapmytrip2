@@ -10,6 +10,11 @@ import android.telephony.TelephonyManager;
 import android.telephony.SignalStrength;
 import com.mkyong.HttpRequest;
 import android.os.StrictMode;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.Location;
+import android.widget.Toast;  
+
 
 public class HelloWorldActivity extends Activity {
     /** Called when the activity is first created. */
@@ -22,8 +27,6 @@ public class HelloWorldActivity extends Activity {
         TelephonyManager TelephonManager;
 		myPhoneStateListener pslistener;
 		int SignalStrength = 0;
-		TextView myAwesomeTextView = (TextView)findViewById(R.id.myAwesomeTextView);
-		myAwesomeTextView.setText("My Awesome Text");
 
 
 		try {
@@ -50,17 +53,11 @@ class MyLocationListener implements LocationListener {
 
 	@Override
     public void onLocationChanged(Location loc) {
-        // editLocation.setText("");
-        // pb.setVisibility(View.INVISIBLE);
-        // Toast.makeText(
-        //         getBaseContext(),
-        //         "Location changed: Lat: " + loc.getLatitude() + " Lng: "
-        //             + loc.getLongitude(), Toast.LENGTH_SHORT).show();
-        String lon = loc.getLongitude();
-        Log.v(TAG, longitude);
-        String lat = loc.getLatitude();
-        Log.v(TAG, latitude);
-        HttpRequest.post("http://mapmytrip.mybluemix.net/datapoint").contentType("application/json").send("{\"signalstrength\":\"f \", \"signaltype\": \"4G\", \"location\": {\"coordinates\": [" + Integer.parseInt(lon)"," + Integer.parseInt(lat)"]}}"
+        String lon = String.valueOf(loc.getLongitude());
+        Log.v("wtf", lon);
+        String lat = String.valueOf(loc.getLatitude());
+        Log.v("wtf", lat);
+        HttpRequest.post("http://mapmytrip.mybluemix.net/datapoint").contentType("application/json").send("{\"signalstrength\":\"f \", \"signaltype\": \"4G\", \"location\": {\"coordinates\": [" + Float.parseFloat(lon) + "," + Float.parseFloat(lat) + "]}}");
     }
     @Override
     public void onProviderDisabled(String provider) {}
@@ -74,7 +71,7 @@ class MyLocationListener implements LocationListener {
 
 class myPhoneStateListener extends PhoneStateListener {
 
-        int ss = -1
+        int ss = -1;
 
         @Override
         public void onSignalStrengthsChanged(SignalStrength signalStrength) {
@@ -82,7 +79,13 @@ class myPhoneStateListener extends PhoneStateListener {
             ss = signalStrength.getGsmSignalStrength();
             ss = (2 * ss) - 113; // -> dBm
             Log.d("wtf", "Signal Strenght is now: " + String.valueOf(ss));
-            Log.d("wtf", "Location: " + locationListener.getLocation());
 			Log.d("wtf", "Signal Post: " + String.valueOf(HttpRequest.post("http://mapmytrip.mybluemix.net/datapoint").contentType("application/json").send("{\"signalstrength\":" + String.valueOf(ss) +", \"signaltype\": \"4G\", \"location\": {\"coordinates\": [12,18]}}").code()));
+			
+			Context context = this;
+			CharSequence text = String.valueOf(ss);
+			int duration = Toast.LENGTH_SHORT;
+
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.show();
         }
 	}

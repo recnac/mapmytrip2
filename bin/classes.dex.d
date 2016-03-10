@@ -12,7 +12,9 @@
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/myPhoneStateListener.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/R$drawable.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/BuildConfig.class \
+/home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/R$id.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/R$string.class \
+/home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/MyLocationListener.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/HttpRequest$1.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/HttpRequest$UploadProgress$1.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/HttpRequest$3.class \
