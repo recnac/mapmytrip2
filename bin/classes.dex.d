@@ -5,6 +5,7 @@
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/HttpRequest$9.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/HttpRequest$ConnectionFactory$1.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/HttpRequest$HttpRequestException.class \
+/home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/HelloWorldActivity$1.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/HelloWorldActivity.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/R$layout.class \
 /home/swieczor/Downloads/mapmytrip2/bin/classes/com/mkyong/android/R$attr.class \
